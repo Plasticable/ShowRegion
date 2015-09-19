@@ -66,6 +66,7 @@ public class Main extends JavaPlugin
 			c.set("blacklist", blacklist);
 			saveConfig();
 			onLoad();
+			
 			return true;
 		}
 
@@ -76,6 +77,7 @@ public class Main extends JavaPlugin
 			c.set("blacklist", blacklist);
 			saveConfig();
 			onLoad();
+			
 			return true;
 		}
 
