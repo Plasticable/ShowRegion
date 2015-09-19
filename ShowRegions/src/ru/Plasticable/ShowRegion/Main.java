@@ -26,7 +26,7 @@ public class Main extends JavaPlugin
 		notregion = c.getString("notregion").replace('&', '§');
 		region = c.getString("region").replace('&', '§');
 		hideDefaultRegion = c.getBoolean("hideDefaultRegion");
-
+  
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable()
 		{
 			@Override

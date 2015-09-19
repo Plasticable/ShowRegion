@@ -24,7 +24,7 @@ public class Utils
 		ApplicableRegionSet set = regionManager.getApplicableRegions(l);
 
 		for (ProtectedRegion pr : set.getRegions())
-		{
+		{  
 			String custom = Main.c.getString("rgnames." + pr.getId()).replace('&', '§');
 
 			return custom == null ? pr.getId() : custom;
