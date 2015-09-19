@@ -18,7 +18,7 @@ public class Main extends JavaPlugin
 	static List<String> blacklist;
 	static FileConfiguration c;
 
-	public void onEnable()
+	public void onLoad()
 	{
 		saveDefaultConfig();
 		c = getConfig();
@@ -26,7 +26,11 @@ public class Main extends JavaPlugin
 		notregion = c.getString("notregion").replace('&', '§');
 		region = c.getString("region").replace('&', '§');
 		hideDefaultRegion = c.getBoolean("hideDefaultRegion");
-  
+	}
+
+	public void onEnable()
+	{
+
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable()
 		{
 			@Override
@@ -36,7 +40,7 @@ public class Main extends JavaPlugin
 					Utils.sendAction(p, Utils.getRegionName(p.getLocation()));
 			}
 		}, 20, 20);
-		
+
 	}
 
 	@Override
@@ -61,6 +65,7 @@ public class Main extends JavaPlugin
 			sender.sendMessage("§6Регион добавлен.");
 			c.set("blacklist", blacklist);
 			saveConfig();
+			onLoad();
 			return true;
 		}
 
@@ -70,6 +75,7 @@ public class Main extends JavaPlugin
 			sender.sendMessage("§6Регион удалён.");
 			c.set("blacklist", blacklist);
 			saveConfig();
+			onLoad();
 			return true;
 		}
 
