@@ -4,6 +4,6 @@ version: 1.1
 softdepend: [ProtocolLib]
 commands:
     showregion:
-        usage: "§c/<command> <add|remove> <region>"
+        usage: "§c/<command> <add|remove|reload> <region>"
         permission: showregion.admin
         default: op

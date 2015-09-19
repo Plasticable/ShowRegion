@@ -36,12 +36,7 @@ public class Main extends JavaPlugin
 					Utils.sendAction(p, Utils.getRegionName(p.getLocation()));
 			}
 		}, 20, 20);
-	}
-
-	public void onDisable()
-	{
-		c.set("blacklist", blacklist);
-		saveConfig();
+		
 	}
 
 	@Override
@@ -64,7 +59,8 @@ public class Main extends JavaPlugin
 		{
 			blacklist.add(args[1]);
 			sender.sendMessage("§6Регион добавлен.");
-			onDisable();
+			c.set("blacklist", blacklist);
+			saveConfig();
 			return true;
 		}
 
@@ -72,7 +68,8 @@ public class Main extends JavaPlugin
 		{
 			blacklist.remove(args[1]);
 			sender.sendMessage("§6Регион удалён.");
-			onDisable();
+			c.set("blacklist", blacklist);
+			saveConfig();
 			return true;
 		}
 
