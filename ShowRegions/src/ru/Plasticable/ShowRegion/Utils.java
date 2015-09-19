@@ -1,6 +1,8 @@
 package ru.Plasticable.ShowRegion;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import java.util.ArrayList;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -13,6 +15,7 @@ import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import org.apache.commons.lang.StringUtils;
 
 public class Utils
 {
@@ -22,15 +25,15 @@ public class Utils
 		WorldGuardPlugin wgp = WorldGuardPlugin.inst();
 		RegionManager regionManager = wgp.getRegionManager(l.getWorld());
 		ApplicableRegionSet set = regionManager.getApplicableRegions(l);
+		List<String> names = new ArrayList<String>();
 
 		for (ProtectedRegion pr : set.getRegions())
 		{  
-			String custom = Main.c.getString("rgnames." + pr.getId()).replace('&', '§');
-
-			return custom == null ? pr.getId() : custom;
+			String name = ChatColor.translateAlternateColorCodes('&', Main.c.getString("rgnames." + pr.getId(), pr.getId()));
+			names.add(name);
 		}
-
-		return Main.notregion;
+		
+		return names.isEmpty() ? Main.notregion : StringUtils.join(names, ", ");
 	}
 
 	public static void sendAction(Player p, String region)
