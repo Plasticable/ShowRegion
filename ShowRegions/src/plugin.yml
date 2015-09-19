@@ -1,0 +1,9 @@
+main: ru.Plasticable.ShowRegion.Main
+name: ShowRegion
+version: 1.1
+softdepend: [ProtocolLib]
+commands:
+    showregion:
+        usage: "§c/<command> <add|remove> <region>"
+        permission: showregion.admin
+        default: op

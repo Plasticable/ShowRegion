@@ -1,0 +1,8 @@
+#Settings
+region: '&e[&a{REGION}&e]'
+notregion: '&4World'
+hideDefaultRegion: false
+blacklist: 
+ - hiddien_arena
+rgnames:
+  spawn: '&aСпавн'
